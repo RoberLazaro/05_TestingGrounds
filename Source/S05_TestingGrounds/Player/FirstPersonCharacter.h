@@ -40,7 +40,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	FVector GunOffset;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	TSubclassOf<class AGun> GunBlueprint;
+
+private:
+	AGun* Gun;
+
 protected:
+	void OnFire();
 
 	/** Resets HMD orientation and position in VR. */
 	void OnResetVR();
